@@ -1,5 +1,5 @@
 import streamlit as st
-from language_recognition import display_lang
+from lang_detection import display_lang
 
 st.title("Language recognition")
 
