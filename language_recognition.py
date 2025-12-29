@@ -28,9 +28,7 @@ def display_lang(text: str) -> str:
     if len(languages) == 1:
         return f"Language: {languages[0]}"
     else:
-        return f'''Language: "{languages[0]}"
+        return f'Language: "{languages[0]}" \n\n (If not, maybe "{languages[1]}" ?)'
 
-(if not, maybe "{languages[1]}" ?)
-'''
 
 print(display_lang("Hello, mein Name ist Luther"))
