@@ -3,8 +3,10 @@ from language_recognition import display_lang
 
 st.title("Language recognition")
 
-text_input = st.text_area("Write text here: ")
+with st.form(key="my_form"):
+    text_input = st.text_area("Enter your text here: ")
+    submit_button = st.form_submit_button("Detect language")
 
-if st.button("Detect language"):
-    result = display_lang(text_input)
-    st.success(result)
+    if submit_button:
+        result = display_lang(text_input)
+        st.success(result)
