@@ -38,7 +38,7 @@ def visualize_stats(stats_dict: Dict) -> plt.Figure:
         graph (plt.Figure): graph showcasing the stats
     """
     labels = list(stats_dict.keys())
-    values = list(stats.values())
+    values = list(stats_dict.values())
 
     fig, ax = plt.subplots(figsize=(8,5))
 
