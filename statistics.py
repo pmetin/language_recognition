@@ -21,7 +21,10 @@ def compute_stats(text: str) -> Dict:
     num_words = len(words)
     sentences = re.split(r'[\.\?!]+', text)
     num_sentences = len(sentences) - 1
-    avg_len = sum(len(w) for w in words) / num_words
+    if num_words != 0:
+        avg_len = sum(len(w) for w in words) / num_words
+    else:
+        avg_len = 0
     return {
         "Character count (no spaces)": length_text,
         "Word count": num_words,
