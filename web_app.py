@@ -3,7 +3,7 @@ import pandas as pd
 from lang_detection import display_lang
 from statistics import compute_stats, visualize_stats, top_words
 
-st.title("Language recognition")
+st.title("Language recognition and statistics")
 
 text_input = st.text_area("Enter your text here: ")
 
