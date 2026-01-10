@@ -7,7 +7,7 @@ from statistics import compute_stats, visualize_stats, top_words
 st.title("Language recognition and statistics")
 
 # main input : text that will be analyzed
-text_input = st.text_area("Enter your text here: ")
+text_input = st.text_area("Enter your text here: \n\n*Tip: don't forget the final dot.*")
 
 # check whether text input exists
 if text_input.strip():
