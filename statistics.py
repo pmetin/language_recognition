@@ -51,11 +51,4 @@ def visualize_stats(stats_dict: Dict) -> plt.Figure:
         ax.text(i, v + max(values)*0.02, str(round(v,2)), ha='center', va='bottom')
     
     plt.tight_layout()
-    plt.show()
     return fig
-
-
-
-if __name__ == "__main__":
-    stats = compute_stats("Bonjour je m'appelle Paul. Je suis un mec bien sympathique")
-    print(visualize_stats(stats))
