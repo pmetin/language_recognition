@@ -1,6 +1,8 @@
 import re
 from typing import List, Dict
 import matplotlib.pyplot as plt
+from collections import Counter
+import pandas as pd
 
 def compute_stats(text: str) -> Dict:
     """
@@ -52,3 +54,23 @@ def visualize_stats(stats_dict: Dict) -> plt.Figure:
     
     plt.tight_layout()
     return fig
+
+def top_words(text: str, n: int = 10) -> pd.DataFrame:
+    """
+    Computes "n" most frequent words in a text
+
+    Args:
+        text (str): text to be processed
+        n (int): number of top words to return
+
+    Returns:
+        pd.DataFrame: DataFrame that contains the "n" top words and their frequency
+    """
+    text = text.lower()
+    text = re.sub(r'[^\w\s]', "", text)
+    words = text/split()
+
+    counter = Counter(words)
+    most_common = counter.most_common(n)
+    df = pd.DataFrame(most_common, columns=["Word", "Frequency"])
+    return df
