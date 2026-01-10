@@ -68,7 +68,7 @@ def top_words(text: str, n: int = 10) -> pd.DataFrame:
     """
     text = text.lower()
     text = re.sub(r'[^\w\s]', "", text)
-    words = text/split()
+    words = text.split()
 
     counter = Counter(words)
     most_common = counter.most_common(n)
