@@ -12,7 +12,6 @@ jobs:
       - run: pip install pdoc
       - run: |
           pdoc --html lang_detection.py statistics.py web_app.py -o docs/ --force
-          pdoc --html  -o docs/ --force
       - uses: actions/upload-pages-artifact@v4
         with:
           path: docs
