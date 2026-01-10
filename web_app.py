@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 from lang_detection import display_lang
 from statistics import compute_stats, visualize_stats
 
@@ -11,11 +12,10 @@ with st.form(key="my_form"):
     if submit_button and len(text_input) > 0:
         result = display_lang(text_input)
         st.success(result)
-
-        stats = compute_stats(text_input)
-        # st.dataframe(pd.DataFrame(stats.items(), columns=["Metric", "Value"]))
         st.subheader("Statistics")
-        st.write(stats)
+        stats = compute_stats(text_input)
+        df = pd.DataFrame(stats.items(), columns=["Metric", "Value"])
+        st.dataframe(df, hide_index=True)
         st.subheader("Visualization")
         fig = visualize_stats(stats)
         st.pyplot(fig)
