@@ -1,6 +1,6 @@
 import re
 
-def stats(text: str) -> str:
+def compute_stats(text: str) -> str:
     """
     Generates statistics on a given text
     Returns f-string that contains results
