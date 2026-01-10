@@ -1,5 +1,6 @@
 import streamlit as st
 from lang_detection import display_lang
+from statistics import compute_stats, visualize_stats
 
 st.title("Language recognition")
 
@@ -10,3 +11,10 @@ with st.form(key="my_form"):
     if submit_button:
         result = display_lang(text_input)
         st.success(result)
+
+        stats = compute_stats(text_input)
+        st.subheader("Statistics")
+        st.write(stats)
+        st.subheader("Visualization")
+        fig = visualize_stats(stats)
+        st.pyplot(fig)
