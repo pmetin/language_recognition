@@ -42,6 +42,9 @@ def visualize_stats(stats_dict: Dict) -> plt.Figure:
     Returns:
         graph (plt.Figure): graph showcasing the stats
     """
+    if not stats_dict:
+        raise ValueError("stats_dict cannot be empty")
+    
     labels = list(stats_dict.keys())
     values = list(stats_dict.values())
 
