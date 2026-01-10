@@ -3,10 +3,7 @@ import pandas as pd
 from lang_detection import display_lang
 from statistics import compute_stats, visualize_stats, top_words
 
-"""
-Implementation of functions from statistics.py and lang_detection.py in a Streamlit interface
-"""
-
+# Implementation of functions from statistics.py and lang_detection.py in a Streamlit interface
 st.title("Language recognition and statistics")
 
 # main input : text that will be analyzed
