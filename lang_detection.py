@@ -13,7 +13,11 @@ def lang_classification(text: str) -> List[Any]:
     Returns:
         list of Language objects.
     """
-    return detect_langs(text)
+    try:
+        return detect_langs(str(text))
+    except Exception:
+        return "Try adding a couple letters maybe?"
+
 
 def lang_suggestion(text: str) -> List[str]:
     """
@@ -25,7 +29,11 @@ def lang_suggestion(text: str) -> List[str]:
     Returns:
         list of language codes
     """
-    return [language.lang for language in lang_classification(text)]
+    languages = lang_classification(text)
+    if type(languages) == str:
+        return languages
+    suggestion = [l.lang for l in languages]
+    return suggestion
 
 def display_lang(text: str) -> str:
     """
@@ -38,10 +46,12 @@ def display_lang(text: str) -> str:
         f-string that contains results
     """
     languages = lang_suggestion(text)
-    if not languages:
-        return "Language: unknown"
 
-    if len(languages) == 1:
+    if type(languages) == str:
+        return languages
+    elif not languages:
+        return "Language: unknown"
+    elif len(languages) == 1:
         return f"Language: {languages[0]}"
     else:
         return f'Language: "{languages[0]}" \n\n (If not, maybe "{languages[1]}" ?)'
