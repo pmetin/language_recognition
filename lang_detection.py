@@ -1,25 +1,41 @@
 from langdetect import detect_langs, DetectorFactory
-from typing import Any
+from typing import Any, List
 
 DetectorFactory.seed = 0
 
-def lang_classification(text: str) -> list[Any]:
+def lang_classification(text: str) -> List[Any]:
     """
-    Detect languages with probabilities.
-    Returns a list of Language objects.
+    Detect languages with probabilities
+
+    Args:
+        text: text to be analyzed
+
+    Returns:
+        list of Language objects.
     """
     return detect_langs(text)
 
-def lang_suggestion(text: str) -> list[str]:
+def lang_suggestion(text: str) -> List[str]:
     """
-    Returns a list of language codes sorted by probability
+    Returns a list of language codes sorted by probability for a given text processed by lang_classification
+
+    Args:
+        text: text to be analyzed
+    
+    Returns:
+        list of language codes
     """
     return [language.lang for language in lang_classification(text)]
 
 def display_lang(text: str) -> str:
     """
     Formats language suggestions
-    Returns f-string that contains results
+
+    Args:
+        text: text to be analyzed
+    
+    Returns:
+        f-string that contains results
     """
     languages = lang_suggestion(text)
     if not languages:
