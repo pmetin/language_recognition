@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
+      - run: pip install -r requirements.txt
       - run: pip install pdoc
       - run: |
           pdoc lang_detection.py statistics.py web_app.py -o docs/
